@@ -1,8 +1,10 @@
 GivenStories: demo/Homepage_Demo.story
 
 Scenario: Login and check inventory
-When I login as a good user
-Then the inventory page is loaded
-And there are 6 inventory items on the page
-And I take a screenshot of the loaded page
-
+When I navigate to the page with the URL '${web.url}'
+And I enter '${user.login}' into the element located by xpath "//input[@data-test='username']"
+And I enter '${user.password}' into the element located by xpath "//input[@data-test='password']"
+And I click on the element located by xpath "//input[@data-test='login-button']"
+Then the page title is equal to "Swag Labs"
+And the number of elements located by xpath "//div[@class='inventory_item']" is equal to 6
+And I take screenshot
