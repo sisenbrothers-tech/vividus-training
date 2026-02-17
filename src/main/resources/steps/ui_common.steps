@@ -1,0 +1,14 @@
+# Composite step для открытия главной страницы (без параметров)
+Composite step: Open SauceDemo homepage
+Given I am on main application page
+When I wait until element located by caseSensitiveText(Swag Labs) appears
+Then ${current-page-url} is equal to https://www.saucedemo.com/
+When I take screenshot
+
+# Composite step для логина (с параметрами)
+Composite step: Login as user ${login} with password ${password}
+When I enter '${login}' into the element located by css selector "#user-name"
+And I enter '${password}' into the element located by css selector "#password"
+And I click on the element located by css selector "#login-button"
+Then the page title is equal to "Swag Labs"
+And I take screenshot
