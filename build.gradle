@@ -1,7 +1,12 @@
+plugins {
+    id "io.qameta.allure" version "2.11.2"
+}
+
 project.description = 'VIVIDUS Training project'
 group = 'org.vividus.training'
 
 ext.buildSystemPath = "${System.env.VIVIDUS_BUILD_SYSTEM_HOME?:buildSystemRootDir}/${buildSystemVersion}"
+
 
 apply from: "${buildSystemPath}/vividus-test-project.gradle"
 
@@ -9,4 +14,7 @@ dependencies {
     implementation platform('org.vividus:vividus-bom:0.6.16')
     implementation('org.vividus:vividus')
     implementation('org.vividus:vividus-plugin-web-app')
+    testImplementation 'io.qameta.allure:allure-junit5:2.13.8'
+    implementation('org.vividus:vividus-plugin-visual')
+    implementation('org.vividus:vividus-plugin-lambdatest')
 }
