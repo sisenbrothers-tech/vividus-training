@@ -1,1 +1,13 @@
+Composite: When I Navigate to the SauceDemo website homepage
+Given I am on main application page
+When I wait until element located by `caseSensitiveText(Swag Labs)` appears
+Then `${current-page-url}` is equal to `https://www.saucedemo.com/`
+When I take screenshot
 
+Composite: When I Login as user `$username` with password `$password`
+When I enter `<username>` in field located by `xpath(//input[@data-test='username'])`
+When I enter `<password>` in field located by `xpath(//input[@data-test='password'])`
+And I click on element located by `xpath(//input[@data-test='login-button'])`
+
+Composite: When element located by `$title_link` contains text `$text`
+Then number of elements found by `xpath(//*[@id="<title_link>"]//*[text()="<text>"])` is equal to `1`
