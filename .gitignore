@@ -17,3 +17,6 @@ output/
 
 # macOS system files
 .DS_Store
+
+# local gradle cache
+bin/.gradle/
